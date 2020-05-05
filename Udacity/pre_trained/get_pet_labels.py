@@ -45,10 +45,29 @@ def get_pet_labels(image_dir):
     for i in range(0, 10, 1):
         print("{:2d} file: {:>25}".format(i + 1, filenames[i]) )
     
-    results_dic = {}
+    results_dic = dict()
     
     # Replace None with the results_dic dictionary that you created with this
     # function
-    return filenames
+    
+    #remove trailing numbers and filetypes from breed and add to list
+    breeds = list()
+    
+    for name in filenames:
+        breed = ""
+        words = name.lower().split('_')
+        
+        for word in words:
+            if word.isalpha():
+                breed += word + " "
+        
+        breeds.append(breed.strip())
+    
+    #loop over filenames and breeds to create ke value pairs in the dict
+    #for i in filenames:
+    #    results_dic[filename]
+    
+    
+    return print(breeds)
 
 get_pet_labels('pet_images')

@@ -42,8 +42,8 @@ def get_pet_labels(image_dir):
     """
     
     filenames = listdir(image_dir)
-    for i in range(0, 10, 1):
-        print("{:2d} file: {:>25}".format(i + 1, filenames[i]) )
+    #for i in range(0, 10, 1):
+        #print("{:2d} file: {:>25}".format(i + 1, filenames[i]) )
     
     results_dic = dict()
     
@@ -56,18 +56,16 @@ def get_pet_labels(image_dir):
     for name in filenames:
         breed = ""
         words = name.lower().split('_')
-        
         for word in words:
             if word.isalpha():
                 breed += word + " "
-        
         breeds.append(breed.strip())
     
     #loop over filenames and breeds to create ke value pairs in the dict
-    #for i in filenames:
-    #    results_dic[filename]
+    for i in range(0, len(filenames), 1):
+        results_dic[filenames[i]] = breeds[i]
     
     
-    return print(breeds)
+    return results_dic
 
 get_pet_labels('pet_images')

@@ -63,9 +63,7 @@ def get_pet_labels(image_dir):
     
     #loop over filenames and breeds to create ke value pairs in the dict
     for i in range(0, len(filenames), 1):
-        results_dic[filenames[i]] = breeds[i]
+        results_dic[filenames[i]] = [breeds[i]]
     
     
     return results_dic
-
-get_pet_labels('pet_images')
